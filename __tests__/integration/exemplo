@@ -1,0 +1,11 @@
+it('should create account', () => {
+    const user = {
+      name: 'dionatas',
+      email: 'dionatas@gmail.com',
+      password: '123456',
+    };
+
+    const response = await request(app).post('/user').send(user);
+
+    expect(response.status).toBe(200);
+  });
