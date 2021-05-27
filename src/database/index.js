@@ -2,12 +2,10 @@ import Sequelize from 'sequelize';
 import 'dotenv/config';
 import dataBaseConfig from '../config/database';
 
-// import Class from '../app/models/Class';
 import User from '../app/models/User';
-// import Growdever from '../app/models/Growdever';
-// import ClassGrowdever from '../app/models/ClassGrowdever';
+import Car from '../app/models/Car';
 
-const models = [User];
+const models = [User, Car];
 class Database {
   constructor() {
     this.init();
@@ -22,7 +20,9 @@ class Database {
 
     models
       .map((model) => model.init(this.connection))
-      .map((model) => model.associate && model.associate(this.connection));
+      .map(
+        (model) => model.associate && model.associate(this.connection.models)
+      );
   }
 }
 
