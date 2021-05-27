@@ -7,15 +7,15 @@ export default {
   //* ------------- USER CONTROLLER -------------- */
   userIndex: {
     code: 2001,
-    message: 'Usuários encontrados com sucesso',
+    message: 'Dados dos usuários encontrados com sucesso',
   },
   userShow: {
     code: 2002,
-    message: 'Usuário encontrado com sucesso',
+    message: 'Dados do usuário encontrados com sucesso',
   },
   userStore: {
     code: 2003,
-    message: 'Usuário cadastrado com sucesso',
+    message: 'Dados do usuário cadastrados com sucesso',
   },
   userUpdate: {
     code: 2004,
@@ -25,54 +25,25 @@ export default {
     code: 2005,
     message: 'Nenhum usuário cadastrado',
   },
-  //* ------------- CLASS CONTROLLER -------------- */
-  classIndex: {
-    code: 2010,
-    message: 'Aulas encontradas com sucesso',
-  },
-  classShow: {
+  //* ------------- CAR CONTROLLER -------------- */
+  carIndex: {
     code: 2011,
-    message: 'Aula encontrada com sucesso',
+    message: 'Dados dos carros encontrados com sucesso',
   },
-  classStore: {
+  carShow: {
     code: 2012,
-    message: 'Aula cadastrada com sucesso',
+    message: 'Dados do carro encontrados com sucesso',
   },
-  classUpdate: {
+  carStore: {
     code: 2013,
-    message: 'Aula atualizada com sucesso',
+    message: 'Dados do carro cadastrados com sucesso',
   },
-  classDelete: {
+  carUpdate: {
     code: 2014,
-    message: 'Aula deletada com sucesso',
+    message: 'Dados do carro atualizados com sucesso',
   },
-  emptyClass: {
+  emptyCar: {
     code: 2015,
-    message: 'Nenhuma aula cadastrada',
-  },
-  //* ------------- GROWDEVER CONTROLLER -------------- */
-  growdeverIndex: {
-    code: 2020,
-    message: 'Alunos encontrados com sucesso',
-  },
-  growdeverShow: {
-    code: 2021,
-    message: 'Aluno encontrado com sucesso',
-  },
-  growdeverStore: {
-    code: 2022,
-    message: 'Aluno cadastrado com sucesso',
-  },
-  growdeverUpdate: {
-    code: 2023,
-    message: 'Dados do aluno atualizados com sucesso',
-  },
-  growdeverDelete: {
-    code: 2024,
-    message: 'Dados do aluno deletados com sucesso',
-  },
-  emptyGrowdever: {
-    code: 2025,
-    message: 'Nenhum aluno cadastrado',
+    message: 'Nenhum carro cadastrado',
   },
 };

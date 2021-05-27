@@ -1,7 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
 
-class User extends Model {
+class Car extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -11,64 +10,49 @@ class User extends Model {
           defaultValue: Sequelize.UUIDV4,
           primaryKey: true,
         },
-        first_name: {
+        car_name: {
           allowNull: false,
           type: Sequelize.STRING,
         },
-        last_name: {
+        brand: {
           allowNull: false,
           type: Sequelize.STRING,
         },
-        age: {
+        year_manufacture: {
           allowNull: false,
           type: Sequelize.INTEGER,
         },
-        cpf: {
+        purchase_price: {
           allowNull: false,
           type: Sequelize.STRING,
         },
-        phone: {
+        license_plate: {
           allowNull: false,
           type: Sequelize.STRING,
         },
-        email: {
-          allowNull: false,
-          type: Sequelize.STRING,
-          validate: {
-            isEmail: true,
+        user_uid: {
+          type: Sequelize.UUID,
+          references: {
+            model: 'users',
+            key: 'uid',
           },
-        },
-        type: {
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE',
           allowNull: false,
-          type: Sequelize.BOOLEAN,
-        },
-        password: {
-          type: Sequelize.VIRTUAL,
-        },
-        password_hash: {
-          type: Sequelize.STRING,
         },
       },
       {
         sequelize,
       }
     );
-
-    this.addHook('beforeSave', async (user) => {
-      if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 8);
-      }
-    });
-
     return this;
   }
-
   static associate(models) {
-    this.hasMany(models.Car, {
+    this.belongsTo(models.User, {
       as: 'user',
       foreignKey: 'user_uid',
     });
   }
 }
 
-export default User;
+export default Car;

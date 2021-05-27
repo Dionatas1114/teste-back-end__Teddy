@@ -1,4 +1,5 @@
 import User from '../models/User';
+import Car from '../models/Car';
 import ApiResult from '../utils/ApiResult';
 
 class UserController {
@@ -15,6 +16,20 @@ class UserController {
           'email',
           'type',
         ],
+        include: [
+          {
+            model: Car,
+            as: 'user',
+            attributes: [
+              'uid',
+              'car_name',
+              'brand',
+              'year_manufacture',
+              'purchase_price',
+              'license_plate',
+            ],
+          },
+        ],
       });
 
       const response = ApiResult.parseResult(
@@ -22,9 +37,10 @@ class UserController {
         { users },
         users.length === 0 ? 'emptyUser' : 'userIndex'
       );
-      return res.status(200).json(response);
+      return res.status(ApiResult.OK).json(response);
     } catch (error) {
-      return res.status(ApiResult.BAD_REQUEST).json(error);
+      const response = ApiResult.parseError(false, 'userIndex', error.message);
+      return res.status(ApiResult.BAD_REQUEST).json(response);
     }
   }
 
@@ -39,7 +55,8 @@ class UserController {
       );
       return res.status(ApiResult.OK).json(response);
     } catch (error) {
-      return res.status(ApiResult.BAD_REQUEST).json(error);
+      const response = ApiResult.parseError(false, 'userStore', error.message);
+      return res.status(ApiResult.BAD_REQUEST).json(response);
     }
   }
 }

@@ -1,4 +1,5 @@
 import successCodes from './SuccessCodes';
+import errorCodes from './ErrorCodes';
 
 class ApiResult {
   static get OK() {
@@ -32,6 +33,16 @@ class ApiResult {
       message: successCode.message,
       successCode: successCode.code,
       data,
+    };
+  }
+
+  static parseError(success, from, error = '') {
+    const errorCode = errorCodes[from];
+    return {
+      success,
+      message: errorCode.message,
+      errorCode: errorCode.code,
+      error,
     };
   }
 }
