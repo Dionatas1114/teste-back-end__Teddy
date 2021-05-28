@@ -42,8 +42,12 @@ export default {
     code: 2014,
     message: 'Dados do carro atualizados com sucesso',
   },
-  emptyCar: {
+  carDelete: {
     code: 2015,
+    message: 'Dados do carro deletados com sucesso',
+  },
+  emptyCar: {
+    code: 2016,
     message: 'Nenhum carro cadastrado',
   },
 };
