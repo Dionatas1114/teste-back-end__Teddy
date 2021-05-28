@@ -1,4 +1,27 @@
 export default {
+  //* ------------- AUTH CONTROLLER -------------- */
+  incorrectUser: {
+    code: 1000,
+    message: 'Usuario não encontrado',
+  },
+  incorrectPassw: {
+    code: 1001,
+    message: 'Senha incorreta',
+  },
+  authLogin: {
+    code: 1002,
+    message:
+      'Não foi possível realizar o login. Por favor, confira os dados inseridos e tente novamente.',
+  },
+  //* ------------- AUTH MIDDLEWARE -------------- */
+  tokenNotFound: {
+    code: 1005,
+    message: 'Token não enviado',
+  },
+  invalidToken: {
+    code: 1006,
+    message: 'Token inválido',
+  },
   //* ------------- USER CONTROLLER -------------- */
   userIndex: {
     code: 1010,
